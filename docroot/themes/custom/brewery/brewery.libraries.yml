@@ -1,0 +1,10 @@
+global-styles:
+  css:
+    theme:
+      css/style.css: {}
+      css/print.css: { media: print }
+  js:
+    js/script.js: {}
+  dependencies:
+    - core/jquery
+
