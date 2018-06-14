@@ -1,0 +1,7 @@
+name: 'Brewery Entities'
+type: module
+description: 'Provides a content entity Brewery'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - custom_entity_tools

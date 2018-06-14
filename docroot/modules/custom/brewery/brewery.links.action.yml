@@ -1,0 +1,5 @@
+entity.brewery.actions:
+  class: Drupal\Core\Menu\LocalActionDefault
+  deriver: \Drupal\custom_entity_tools\Plugin\Derivative\EntityBaseLocalAction
+  options:
+    _entity_type_id: brewery

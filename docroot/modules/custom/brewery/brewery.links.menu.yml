@@ -1,0 +1,6 @@
+entity.brewery.editorial:
+  class: Drupal\Core\Menu\MenuLinkDefault
+  deriver: Drupal\custom_entity_tools\Plugin\Derivative\EntityBaseMenuLink
+  menu_name: admin
+  options:
+    _entity_type_id: brewery

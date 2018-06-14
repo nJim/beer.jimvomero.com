@@ -1,0 +1,8 @@
+# Adds local tasks links for 'View', 'Edit', and 'Revisions' for the entity.
+# Adds a tab for viewing the collection when viewing other entity collections.
+# Adds a settings tab when viewing the field_ui routes for the entity.
+entity.brewery.tasks:
+  class: Drupal\Core\Menu\LocalTaskDefault
+  deriver: \Drupal\custom_entity_tools\Plugin\Derivative\EntityBaseLocalTask
+  options:
+    _entity_type_id: brewery
