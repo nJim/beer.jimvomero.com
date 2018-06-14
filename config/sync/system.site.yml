@@ -1,0 +1,14 @@
+uuid: 52b63d1a-3147-43ba-b86e-4d2324ed6374
+name: 'Pursuit of Hoppiness'
+mail: jamesvomero@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

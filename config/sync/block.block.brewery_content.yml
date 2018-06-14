@@ -1,0 +1,22 @@
+uuid: 23cacbcb-ec07-45af-b95a-223f6e2cb9bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - brewery
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: brewery_content
+theme: brewery
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: eada8526-bd71-4569-91b8-781039962f53
+langcode: en
+status: true
+dependencies:
+  theme:
+    - brewery
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: brewery_local_actions
+theme: brewery
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }
