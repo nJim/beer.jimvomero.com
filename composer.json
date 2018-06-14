@@ -13,6 +13,19 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupal/custom_entity_tools",
+                "version": "dev-master",
+                "type":"drupal-module",
+                "source": {
+                    "url": "https://github.com/nJim/custom_entity_tools.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
         }
     ],
     "require": {
@@ -22,6 +35,7 @@
         "drupal/admin_toolbar": "^1.24",
         "drupal/console": "^1.0.2",
         "drupal/core": "~8.5.3",
+        "drupal/custom_entity_tools": "dev-master",
         "drupal/material_admin": "^1.0@alpha",
         "drush/drush": "^9.0.0",
         "vlucas/phpdotenv": "^2.4",
