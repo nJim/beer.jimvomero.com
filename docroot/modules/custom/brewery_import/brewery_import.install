@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the brewery_import module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function brewery_import_install() {
+
+  $client = \Drupal::httpClient();
+  if ($response = $client->get('http://local.beer.jimvomero.com-old/export?_format=json')) {
+    $migrateData = json_decode($response->getBody(), TRUE);
+  }
+
+  // Instantiate BreweryImportItem service.
+  $brewery = Drupal::service('brewery_import.item');
+
+  foreach ($migrateData as $data) {
+
+    // Brewery setters can be chained together.
+    $brewery->setName($data['title'])
+      ->setDateVisit($data['field_date_visit'])
+      ->setGeolocation($data['field_location_latitude'], $data['field_location_longitude']);
+
+    // Brewery may have multiple types. Explode string and add each one.
+    foreach (explode(',', $data['field_brewery_type']) as $type) {
+      $brewery->addType(trim($type));
+    }
+
+    // Brewery may have multiple images. Explode string and add each one.
+    foreach (explode(',', $data['field_images']) as $url) {
+      $brewery->addMedia(trim($url));
+    }
+
+    // Map the migration data to the correct address fields.
+    $brewery->setLocation([
+      'country_code'        => $data["field_location_country_code"],
+      'administrative_area' => $data["state"],
+      'locality'            => $data["field_location_locality"],
+      'postal_code'         => $data["field_location_postal_code"],
+      'address_line1'       => $data["field_location_address_line1"],
+      'address_line2'       => $data["field_location_address_line2"],
+    ]);
+
+    // Create the new Brewery entity and clear the values for next loop.
+    $brewery->importBrewery();
+    $brewery->resetValues();
+
+  }
+}

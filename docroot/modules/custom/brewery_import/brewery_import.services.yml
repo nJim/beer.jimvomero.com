@@ -1,0 +1,4 @@
+services:
+  brewery_import.item:
+    class: Drupal\brewery_import\BreweryImportItem
+    arguments: ['@current_user','@file_system','@geofield.wkt_generator','@language_manager']

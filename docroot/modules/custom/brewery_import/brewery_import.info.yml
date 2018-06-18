@@ -1,0 +1,5 @@
+name: 'Brewery Import'
+type: module
+description: 'A custom import for migrating brewery data into this D8 site.'
+core: 8.x
+package: 'Custom'
