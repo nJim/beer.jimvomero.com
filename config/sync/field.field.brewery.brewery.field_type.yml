@@ -1,0 +1,21 @@
+uuid: 769be30f-42b1-4c35-858a-20bbf2eb7c86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.brewery.field_type
+  module:
+    - brewery
+    - options
+id: brewery.brewery.field_type
+field_name: field_type
+entity_type: brewery
+bundle: brewery
+label: Type
+description: 'Select the type of facility. Breweries are production facilities with distribution. Brewpub serve on-site and have a kitchen. Taprooms serve the breweries beer outside of the production facility.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

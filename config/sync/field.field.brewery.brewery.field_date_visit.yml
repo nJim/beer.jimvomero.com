@@ -1,0 +1,21 @@
+uuid: d0bde253-d4b7-42b0-9380-cd6ccea226ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.brewery.field_date_visit
+  module:
+    - brewery
+    - datetime
+id: brewery.brewery.field_date_visit
+field_name: field_date_visit
+entity_type: brewery
+bundle: brewery
+label: 'Date of First Visit'
+description: 'The date of the first visit to the venue.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

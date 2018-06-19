@@ -1,0 +1,20 @@
+uuid: 806ecb8b-6816-4414-9435-61147d036e35
+langcode: en
+status: true
+dependencies:
+  module:
+    - brewery
+    - datetime
+id: brewery.field_date_visit
+field_name: field_date_visit
+entity_type: brewery
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,39 @@
+uuid: c5414d7a-0912-4e78-92dc-6c70388fc566
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.brewery.field_location
+  module:
+    - address
+    - brewery
+id: brewery.brewery.field_location
+field_name: field_location
+entity_type: brewery
+bundle: brewery
+label: Location
+description: 'The address of the venue.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries:
+    CA: CA
+    US: US
+  langcode_override: ''
+  field_overrides:
+    givenName:
+      override: hidden
+    additionalName:
+      override: hidden
+    familyName:
+      override: hidden
+    organization:
+      override: hidden
+    sortingCode:
+      override: hidden
+    dependentLocality:
+      override: hidden
+  fields: {  }
+field_type: address

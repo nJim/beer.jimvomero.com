@@ -1,0 +1,30 @@
+uuid: b3ded538-74dc-4914-88fb-ed9f9be9ebec
+langcode: en
+status: true
+dependencies:
+  module:
+    - brewery
+    - options
+id: brewery.field_type
+field_name: field_type
+entity_type: brewery
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: brewery
+      label: Brewery
+    -
+      value: brewpub
+      label: Brewpub
+    -
+      value: taproom
+      label: Taproom
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

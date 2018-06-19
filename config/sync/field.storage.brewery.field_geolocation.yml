@@ -1,0 +1,20 @@
+uuid: 058e7fd2-bf0c-4989-a2a4-7fbc5ce59b2a
+langcode: en
+status: true
+dependencies:
+  module:
+    - brewery
+    - geofield
+id: brewery.field_geolocation
+field_name: field_geolocation
+entity_type: brewery
+type: geofield
+settings:
+  backend: geofield_backend_default
+module: geofield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

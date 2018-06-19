@@ -1,0 +1,62 @@
+uuid: fa73050e-49f5-4d59-8f07-0ce6a15c67bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.brewery.brewery.field_date_visit
+    - field.field.brewery.brewery.field_geolocation
+    - field.field.brewery.brewery.field_image
+    - field.field.brewery.brewery.field_location
+    - field.field.brewery.brewery.field_type
+  module:
+    - address
+    - brewery
+    - datetime
+    - geofield
+    - options
+id: brewery.brewery.default
+targetEntityType: brewery
+bundle: brewery
+mode: default
+content:
+  field_date_visit:
+    weight: 3
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_geolocation:
+    weight: 2
+    label: above
+    settings:
+      output_format: wkt
+    third_party_settings: {  }
+    type: geofield_default
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    weight: 5
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_location:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_type:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden: {  }

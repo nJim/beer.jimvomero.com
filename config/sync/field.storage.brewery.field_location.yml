@@ -1,0 +1,19 @@
+uuid: fcefcaea-9dfc-4696-928e-205e700fe959
+langcode: en
+status: true
+dependencies:
+  module:
+    - address
+    - brewery
+id: brewery.field_location
+field_name: field_location
+entity_type: brewery
+type: address
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: 217d114c-6a1d-4ac3-bb55-555a1e85e3a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.brewery.field_geolocation
+  module:
+    - brewery
+    - geofield
+id: brewery.brewery.field_geolocation
+field_name: field_geolocation
+entity_type: brewery
+bundle: brewery
+label: Geolocation
+description: 'The latitude and longitude coordinates of the venue. Calculated from the address field values.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  backend: geofield_backend_default
+field_type: geofield
