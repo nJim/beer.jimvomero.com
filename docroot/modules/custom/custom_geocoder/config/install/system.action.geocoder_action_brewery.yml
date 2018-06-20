@@ -1,0 +1,6 @@
+id: geocoder_action
+label: 'Geocode the address field'
+langcode: en
+status: true
+type: brewery
+plugin: geocoder_action
