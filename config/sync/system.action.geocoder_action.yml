@@ -1,0 +1,13 @@
+uuid: 7ddd79f2-bdfc-47da-9785-8289ce8a9e8e
+langcode: en
+status: true
+dependencies:
+  module:
+    - custom_geocoder
+_core:
+  default_config_hash: lWDYgLuIZRHNQhC4J5q6Cd1Hv43erPtMA5ecmHjMca0
+id: geocoder_action
+label: 'Geocode the address field'
+type: brewery
+plugin: geocoder_action
+configuration: {  }

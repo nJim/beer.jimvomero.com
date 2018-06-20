@@ -19,20 +19,20 @@ bundle: brewery
 mode: default
 content:
   field_date_visit:
-    weight: 123
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_geolocation:
-    weight: 122
+    weight: 2
     settings:
       html5_geolocation: false
     third_party_settings: {  }
     type: geofield_latlon
     region: content
   field_image:
-    weight: 125
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60
@@ -41,14 +41,14 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_location:
-    weight: 121
+    weight: 1
     settings:
       default_country: null
     third_party_settings: {  }
     type: address_default
     region: content
   field_type:
-    weight: 124
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -63,18 +63,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
-  user_id:
-    type: entity_reference_autocomplete
-    weight: 5
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  user_id: true
