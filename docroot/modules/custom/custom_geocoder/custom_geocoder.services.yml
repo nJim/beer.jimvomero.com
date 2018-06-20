@@ -1,0 +1,4 @@
+services:
+  custom_geocoder.geocoder:
+    class: Drupal\custom_geocoder\Geocoder
+    arguments: ['@entity_type.manager','@geofield.wkt_generator','@messenger']
