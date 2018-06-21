@@ -1,0 +1,19 @@
+/* Main wrapper contains page contents and prevents interference from menu. */
+main {
+  padding-top: 52px;
+}
+@media only screen and (max-width: 500px) {
+  main {
+    padding-top: 80px;
+  }
+}
+
+/* Most content is wrapped in a layout row */
+.layout-row {
+  width: 100%;
+}
+/* The layout-row-inner wrapper ensures a max width of row contents. */
+.layout-row-inner {
+  margin: 0 auto;
+  max-width: 1200px;
+}

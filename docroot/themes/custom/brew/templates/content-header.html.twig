@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Template for the content-header area.
+ *
+ * Variables:
+ * - headline: The page title.
+ * - description: Intro copy for the page.
+ */
+#}
+
+{{ attach_library('brew/content-header') }}
+
+<div class="layout-row">
+  <div class="layout-row-inner">
+    <div class="content-header">
+      <h1 class="content-header__headline">
+        {{ headline }}
+      </h1>
+      <div class="content-header__description">
+        {{ description }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+name: Brew
+description: Jims Brewery Site Theme.
+type: theme
+core: 8.x
+libraries:
+  - brew/global-styles
+regions:
+  main_menu: 'Main Menu'
+  header: 'Header'
+  content: 'Content'
+  content_wide: 'Content Full Width'
+  footer: 'Footer'

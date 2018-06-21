@@ -1,0 +1,20 @@
+global-styles:
+  css:
+    base:
+      css/base.css: {}
+    layout:
+      css/layout.css: {}
+    component:
+      css/component.header.css: {}
+    theme:
+      //fonts.googleapis.com/css?family=Open+Sans|Oswald: { type: external, minified: true }
+      css/styles.css: {}
+  #js:
+    #js/script.js: {}
+  dependencies:
+    - core/jquery
+
+content-header:
+  css:
+    component:
+      css/component.content-header.css: {}

@@ -28,3 +28,17 @@ function brewery_page_attachments_alter(array &$page) {
   ];
   $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];
 }
+
+/**
+ * Implements hook_theme().
+ */
+function brew_theme() {
+  return [
+    'content_header' => [
+      'variables' => [
+        'headline' => NULL,
+        'description' => NULL,
+      ],
+    ],
+  ];
+}

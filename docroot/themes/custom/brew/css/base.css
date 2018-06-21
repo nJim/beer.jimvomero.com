@@ -1,0 +1,75 @@
+/* Global document styles */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  line-height: 1.5;
+  word-wrap: break-word;
+  font-family: Oswald, sans-serif;
+  font-size: 87.5%;
+  margin: 0;
+  overflow-x: hidden; /* Edge Fix */
+}
+
+/* Links */
+a,
+a.link {
+  text-decoration: none;
+  color: #000;
+}
+a:hover,
+a:active,
+a:focus,
+.link:hover,
+.link:active,
+.link:focus {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Headings */
+h1 {
+  margin: 0;
+  padding: 0;
+  font-weight: inherit;
+  font-size: 1.357em;
+  color: #000;
+}
+h2 {
+  margin: 0;
+  padding: 0;
+  font-weight: inherit;
+  font-size: 1.143em;
+}
+h3 {
+  font-weight: inherit;
+  font-size: 1.092em;
+}
+
+/* Text treatments */
+p {
+  margin: 0 0 1.2em;
+}
+
+/* Reset lists */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Images */
+img {
+  display:block;
+}
+

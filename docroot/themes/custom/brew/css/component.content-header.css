@@ -1,0 +1,33 @@
+/**
+ * Appears in-place of title_block and includes title and description copy.
+ */
+.content-header {
+  display: table;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 3rem 0 4rem 0;
+}
+.content-header__headline {
+  display: table-cell;
+  width: 225px;
+  font-size: 3.25rem;
+  line-height: 1;
+  vertical-align: middle;
+  text-align: right;
+  padding-right: 1rem;
+}
+.content-header__description {
+  display: table-cell;
+  font-size: 1.35rem;
+  vertical-align: middle;
+}
+@media only screen and (max-width: 550px) {
+  .content-header,
+  .content-header__headline,
+  .content-header__description {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 2px;
+  }
+}

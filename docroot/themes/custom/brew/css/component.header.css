@@ -1,0 +1,45 @@
+/**
+ * Fixed header on top of page.
+ */
+.header {
+  position: fixed;
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  z-index: 200;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 8px #aaa;
+  -moz-box-shadow: 0 0 8px #aaa;
+  box-shadow: 0 0 8px #aaa;
+}
+
+/* Title of site acts as home link and word mark. */
+.header__title {
+  display: inline-block;
+}
+@media all and (max-width: 500px) {
+  .header__title {
+    display: block;
+    text-align: center;
+  }
+}
+
+/* Site only has a few links in the main menu. */
+.header__main-menu {
+  float: right;
+}
+.header__main-menu__item {
+  display: inline-block;
+  background: url('../images/bg-wheat-mini.png') no-repeat right;
+  padding-right: 40px;
+}
+@media all and (max-width: 500px) {
+  .header__main-menu {
+    float: none;
+    text-align: center;
+  }
+  .header__main-menu__item:last-of-type {
+    background: none;
+    padding-right: 0;
+  }
+}

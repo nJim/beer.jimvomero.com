@@ -42,42 +42,27 @@
  * @see html.html.twig
  */
 #}
-
-<header role="banner">
-  {{ page.header }}
+<header class="header layout-row">
+  <div class="layout-row-inner">
+    <a class="header__title" href="/">
+      Pursuit of Hoppiness
+    </a>
+    <div class="header__main-menu">
+      {{ page.main_menu }}
+    </div>
+  </div>
 </header>
 
-{{ page.primary_menu }}
-{{ page.secondary_menu }}
-
-{{ page.highlighted }}
-
-{{ page.help }}
-
-<main role="main">
-  <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-
-  <div class="layout-content">
-    {{ page.content }}
-  </div>{# /.layout-content #}
-
-  {% if page.sidebar_first %}
-    <aside class="layout-sidebar-first" role="complementary">
-      {{ page.sidebar_first }}
-    </aside>
-  {% endif %}
-
-  {% if page.sidebar_second %}
-    <aside class="layout-sidebar-second" role="complementary">
-      {{ page.sidebar_second }}
-    </aside>
-  {% endif %}
-
+<main class="main layout-row" role="main">
+  <div class="layout-row-inner">
+    {{ page.highlighted }}
+    {{ page.help }}
+  </div>
+  {{ page.content }}
 </main>
 
-
-<footer role="contentinfo">
-  <div class="footer-background">
+<footer class="footer layout-row" role="contentinfo">
+  <div class="layout-row-inner">
     {% if page.footer %}
       {{ page.footer }}
     {% endif %}
