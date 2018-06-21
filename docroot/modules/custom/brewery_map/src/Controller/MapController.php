@@ -4,6 +4,7 @@ namespace Drupal\brewery_map\Controller;
 
 use Drupal\brewery\Entity\BreweryInterface;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 
@@ -24,29 +25,53 @@ class MapController extends ControllerBase {
   protected $entityTypeManager;
 
   /**
+   * Provides the page title.
+   *
+   * @return \Drupal\Core\StringTranslation\TranslatableMarkup
+   *   The page title.
+   */
+  public function getHeadline(): TranslatableMarkup {
+    return $this->t('Brew Map');
+  }
+
+  /**
    * Page content.
    *
    * @return array
    *   Page render array.
    */
-  public function contents() {
+  public function contents(): array {
 
+    // Load data for published breweries and prepare variables for theming.
     $breweryEntities = self::loadBreweryData();
     $mapData = array_map('self::parseBreweryData', $breweryEntities);
+    $countBreweries = count($mapData);
+    $countState = count(array_unique(array_map(function ($brewery) {
+      return $brewery['address']['state'] ?? NULL;
+    }, $mapData)));
 
     return [
-      '#theme' => 'brewery_map',
-      '#attached' => [
-        'library' => [
-          'brewery_map/brewery_map',
-        ],
-        'drupalSettings' => [
-          'mapData' => $mapData,
-        ],
+      'content_header_row' => [
+        '#theme' => 'content_header',
+        '#headline' => self::getHeadline(),
+        '#description' => "Always on the lookout for a new local favorite, my 
+          travels have taken me to {$countBreweries} breweries, brewpubs, and
+          taprooms across {$countState} states and provinces.",
       ],
-      '#cache' => [
-        'contexts' => [
-          'route',
+      'brewery_map_row' => [
+        '#theme' => 'brewery_map',
+        '#attached' => [
+          'library' => [
+            'brewery_map/brewery_map',
+          ],
+          'drupalSettings' => [
+            'mapData' => $mapData,
+          ],
+        ],
+        '#cache' => [
+          'contexts' => [
+            'route',
+          ],
         ],
       ],
     ];
@@ -58,7 +83,7 @@ class MapController extends ControllerBase {
    * @return array
    *   An array of brewery entities.
    */
-  protected function loadBreweryData() {
+  protected function loadBreweryData(): array {
     return $this->entityTypeManager
       ->getListBuilder('brewery')
       ->getStorage()
@@ -76,7 +101,7 @@ class MapController extends ControllerBase {
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
-  protected function parseBreweryData(BreweryInterface $brewery) {
+  protected function parseBreweryData(BreweryInterface $brewery): array {
     $fieldGeo = $brewery->get('field_geolocation')->first()->getValue();
     $fieldAdd = $brewery->get('field_location')->first()->getValue();
     $fieldType = array_filter(array_map(function ($type) {

@@ -3,6 +3,6 @@ brewery_map.contents:
   path: 'map'
   defaults:
     _controller: '\Drupal\brewery_map\Controller\MapController::contents'
-    _title: 'Brewery Map'
+    _title_callback: '\Drupal\brewery_map\Controller\MapController::getHeadline'
   requirements:
     _permission: 'access content'

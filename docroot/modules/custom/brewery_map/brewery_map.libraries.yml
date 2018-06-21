@@ -1,5 +1,7 @@
 brewery_map:
-  version: VERSION
+  css:
+    theme:
+      css/map.css: {}
   js:
     https://maps.googleapis.com/maps/api/js?key=AIzaSyB54BT_rHTrZ1XNcrX4p6r7a-i-azplBr4&callback=initMap: {type: external, attributes: { defer: true, async: true} }
     js/map_init.js: {}

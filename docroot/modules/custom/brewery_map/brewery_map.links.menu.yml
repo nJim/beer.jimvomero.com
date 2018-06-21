@@ -1,0 +1,7 @@
+# Add Brewery Map page to the main menu.
+brewery_map.contents:
+  title: 'Brew Map'
+  description: 'Brewery Map'
+  route_name: brewery_map.contents
+  menu_name: main
+  weight: 100
