@@ -1,0 +1,8 @@
+# Route for brewery map page.
+brewery_map.contents:
+  path: 'map'
+  defaults:
+    _controller: '\Drupal\brewery_map\Controller\MapController::contents'
+    _title: 'Brewery Map'
+  requirements:
+    _permission: 'access content'

@@ -51,8 +51,8 @@ class Geocoder implements ContainerInjectionInterface {
     $coordinates = self::geocode($addressString);
     if (isset($coordinates['latitude'], $coordinates['longitude'])) {
       return $this->geoFieldGenerator->WktBuildPoint([
-        $coordinates['latitude'],
         $coordinates['longitude'],
+        $coordinates['latitude'],
       ]);
     }
     return NULL;

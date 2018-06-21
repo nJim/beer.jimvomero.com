@@ -1,0 +1,5 @@
+name: 'Brewery Map'
+type: module
+description: 'Displays a map via Google Maps API and related content.'
+core: 8.x
+package: 'Custom'
