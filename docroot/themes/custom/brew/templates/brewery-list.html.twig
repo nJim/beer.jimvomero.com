@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Theme for displaying brewery list.
+ *
+ * The brewery_list displays breweries in a series of tiles.
+ */
+#}
+
+{{ attach_library('brew/brewery-list') }}
+
+{% if breweries %}
+  <ul class="tile-list">
+    {% for brewery in breweries %}
+      <li class="tile-list__item">
+        <div class="flipper">
+          <div class="tile-front tile-wrapper">
+            <div class="tile-inner">
+              {% if brewery.image.url %}
+                <img class="tile-front__image" src="" data-src="{{ brewery.image.url }}" />
+              {% endif %}
+              <div class="tile-front__title">{{ brewery.name }}</div>
+            </div>
+          </div>
+          <div class="tile-back tile-wrapper" data-bg-url="{# {{ brewery.mapImage }} #}">
+            <div class="tile-inner">
+              <div class="tile-back__title">{{ brewery.title }}</div>
+              {% if brewery.date.value %}
+                <div class="tile-back__visit">Visited: {{ brewery.date.value|date("F d, Y") }}</div>
+              {% endif %}
+              {% if brewery.address.city %}
+                <div class="tile-back__location">Location: {{ brewery.address.city }}, {{ brewery.address.state }}</div>
+              {% endif %}
+              {% if brewery.types %}
+                <div class="tile-back__types">Type: {{ brewery.types|join(', ') }}</div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </li>
+
+    {% endfor %}
+  </ul>
+{% endif %}

@@ -1,0 +1,156 @@
+/*** List Layout ***/
+.tile-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.tile-list__item {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
+  flex-basis: 100%;
+  flex-direction: row;
+  padding: 3px;
+}
+@media (min-width: 450px) {
+  .tile-list__item { flex-basis: 50%; }
+}
+@media (min-width: 850px) {
+  .tile-list__item { flex-basis: 33.33%; }
+}
+@media (min-width: 1200px) {
+  .tile-list__item { flex-basis: 25%; }
+}
+
+/*** Flipper for Animation ***/
+.flipper {
+  width: 100%;
+  transition: 0.6s;	
+  position: relative;
+  
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.tile-list__item.flip .flipper {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/*** Tile Layout ***/
+.tile-wrapper {
+  width: 100%;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  height: 0;
+  padding-bottom: 75%;
+  overflow: hidden;
+}
+
+/*** Front Tile ***/
+.tile-front {
+  background-color: #000;
+  z-index: 2;
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.tile-front__image {
+  opacity: 1;
+  width: 100%;
+  height: auto;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-backface-visibility: hidden;
+}
+.tile-front__title {
+  opacity: 0;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  -webkit-transition: all 2;
+  transition: all 2;
+  -webkit-backface-visibility: hidden;
+}
+.tile-wrapper.visible .tile-front__image,
+.tile-wrapper:hover .tile-front__image {
+  opacity: 0.4;
+  transform: scale(1.5); 
+  -webkit-transform: scale(1.5);
+}
+.tile-wrapper.visible .tile-front__title,
+.tile-wrapper:hover .tile-front__title {
+  opacity: 1;
+  -webkit-transition: all 2;
+  transition: all 2;
+}
+
+/*** Back Tile ***/
+.tile-back {
+  position: absolute;
+	transform: rotateY(180deg);
+	background-color: #fff;
+	text-align: center;
+	
+	background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top center; 
+  background-color: #212121;
+	
+  box-shadow: inset 0px 0px 0px 5px #212121;
+  -webkit-box-shadow: inset 0px 0px 0px 5px #212121;
+  -moz-box-shadow: inset 0px 0px 0px 5px #212121;
+  -o-box-shadow: inset 0px 0px 0px 5px #212121;
+  
+  /* The back tile should start hidden and rotated */
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.tile-back .tile-inner {
+  padding: 15px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: #212121;
+  color: #fff;
+}
+.tile-back__title {
+  font-size: 1.25rem;  
+}
+tile-back__visit {
+  
+}

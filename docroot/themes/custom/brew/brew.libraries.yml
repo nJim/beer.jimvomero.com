@@ -1,3 +1,4 @@
+# Site wide styles and scripts.
 global-styles:
   css:
     base:
@@ -14,7 +15,38 @@ global-styles:
   dependencies:
     - core/jquery
 
+# Styles for select pages that employ the content-header template.
 content-header:
   css:
     component:
       css/component.content-header.css: {}
+
+# Styles and scripts for the brewery list page.
+brewery-list:
+  css:
+    component:
+      css/component.brewery-list.css: {}
+  js:
+    js/brewery-list-init.js: {}
+  dependencies:
+    - core/jquery
+    - brew/lazyloader
+    - brew/onscreen
+
+# A third-party lazy loader jQuery plugin.
+lazyloader:
+  js:
+    js/jquery.unveil.js: {}
+
+# A home brewed jQuery plugin for checking if an element is on screen.
+onscreen:
+  js:
+    js/jquery.isOnScreen.js: {}
+  dependencies:
+      - core/jquery
+      - brew/jquery-migrate
+
+# Support for running some jQuery 1.x methods in jQuery 3.0.0
+jquery-migrate:
+  js:
+    js/jquery-migrate-3.0.0.js: {}

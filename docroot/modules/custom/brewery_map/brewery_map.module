@@ -10,6 +10,8 @@
  */
 function brewery_map_theme($existing, $type, $theme, $path) {
   return [
-    'brewery_map' => [],
+    'brewery_map' => [
+      'variables' => [],
+    ],
   ];
 }

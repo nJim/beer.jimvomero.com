@@ -1,0 +1,7 @@
+# Add Brewery List page to the main menu.
+brewery_list.contents:
+  title: 'Brew List'
+  description: 'List of Breweries'
+  route_name: brewery_list.contents
+  menu_name: main
+  weight: 50

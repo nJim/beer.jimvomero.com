@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Contains brewery_list.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function brewery_list_theme($existing, $type, $theme, $path) {
+  return [
+    'brewery_list' => [
+      'variables' => [
+        'breweries' => NULL,
+      ],
+    ],
+  ];
+}

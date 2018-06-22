@@ -1,0 +1,8 @@
+# Route for brewery list page.
+brewery_list.contents:
+  path: 'list'
+  defaults:
+    _controller: '\Drupal\brewery_list\Controller\ListController::contents'
+    _title_callback: '\Drupal\brewery_list\Controller\ListController::getHeadline'
+  requirements:
+    _permission: 'access content'

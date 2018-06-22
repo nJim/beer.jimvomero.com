@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Theme for displaying brewery list.
+ *
+ * The template included in the brewery_list module only display a list of
+ * brewery names. To stay organized, the actual implementation of this template
+ * can be found in the brew theme.
+ */
+#}
+
+{% if breweries %}
+  <ul>
+    {% for brewery in breweries %}
+      <li>{{ brewery.name }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
