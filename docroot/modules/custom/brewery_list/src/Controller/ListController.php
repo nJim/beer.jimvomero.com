@@ -47,6 +47,7 @@ class ListController extends ControllerBase {
     // Load data for published breweries and prepare variables for theming.
     $breweryEntities = self::loadBreweryData();
     $breweryData = array_map('self::parseBreweryData', $breweryEntities);
+    usort($breweryData, 'self::sortByDateVisitCallback');
 
     return [
       'content_header_row' => [
@@ -119,6 +120,13 @@ class ListController extends ControllerBase {
         'state' => $fieldAdd['administrative_area'] ?? '',
       ],
     ];
+  }
+
+  /**
+   * Sort brewery data array by 'date' key.
+   */
+  protected function sortByDateVisitCallback($a, $b) {
+    return ($a['date'] <= $b['date']) ? -1 : 1;
   }
 
   /**
