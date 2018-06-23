@@ -1,0 +1,22 @@
+/**
+ * Footer at bottom of page hard coded in page template.
+ */
+footer {
+  padding: 15vh 1rem;
+  background-image: url('../images/bg-footer.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+body.mobile-device footer {
+  background-attachment: inherit; /* iOS and Android dont support */
+}
+.footer__text {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  text-align: center;
+  background-color: #fff;
+  width: 100%;
+  max-width: 800px;
+  padding: 1rem;
+  margin: 0 auto;
+}

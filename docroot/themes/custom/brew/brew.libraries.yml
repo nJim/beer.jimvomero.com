@@ -7,6 +7,7 @@ global-styles:
       css/layout.css: {}
     component:
       css/component.header.css: {}
+      css/component.footer.css: {}
     theme:
       //fonts.googleapis.com/css?family=Open+Sans|Oswald: { type: external, minified: true }
       css/styles.css: {}
