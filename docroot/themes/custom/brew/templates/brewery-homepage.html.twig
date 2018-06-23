@@ -1,0 +1,72 @@
+{#
+/**
+ * @file
+ * Theme for displaying brewery homepage
+ *
+ * The template included in the brewery_homepage module only displays a short
+ * message. To stay organized, the actual implementation of this template
+ * can be found in the brew theme.
+ */
+#}
+{{ attach_library('brew/homepage') }}
+
+{# The feature band is a large image and a placeholder for the site title. #}
+<div class="homepage-feature">
+  <div class="homepage-feature__title wow zoomInLeft"></div>
+</div>
+
+{# The story band incldues intro copy. #}
+<div class="content-band content-band--story">
+  <div class="content-band__content wow fadeIn">
+    <h1 class="content-band__heading">
+      Push Your Pallet
+    </h1>
+    <div class="content-band__break"></div>
+    <div class="content-band__body">
+      Beer is an acquired taste. My first IPA was undrinkable. And I remember my
+      first brett beer to be truly nasty. But I kept trying new things and now I
+      wouldn’t dare turn down a hoppy or sour beer.
+    </div>
+  </div>
+</div>
+
+{# The stats band has a bubble effect that shows brew counters. #}
+<div class="homepage-stats">
+  <div class="homepage-stats__background"></div>
+  <div class="homepage-stats__content">
+    <div class="bubble wow fadeIn">
+      <div class="bubble__inner">
+        <div class="bubble__count" id="brewery-count"></div>
+        <div class="bubble__type">Breweries</div>
+      </div>
+    </div>
+    <div class="bubble wow fadeIn">
+      <div class="bubble__inner">
+        <div class="bubble__count" id="brewpub-count"></div>
+        <div class="bubble__type">Brewpubs</div>
+      </div>
+    </div>
+    <div class="bubble wow fadeIn">
+      <div class="bubble__inner">
+        <div class="bubble__count" id="taproom-count"></div>
+        <div class="bubble__type">Taprooms</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="myTargetElement" id="myTargetElement"></div>
+
+{# The final content bands appears at the bottom of the page. #}
+<div class="content-band content-band--welcome">
+  <div class="content-band__content wow fadeIn">
+    <h1 class="content-band__heading">
+      My Beer Travels
+    </h1>
+    <div class="content-band__break"></div>
+    <div class="content-band__body">
+      I rarely drink the same beer twice. Instead I explore the craft beer
+      scene one flight at a time; supporting local businesses and indulging
+      my inner hipster.
+    </div>
+  </div>
+</div>

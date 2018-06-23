@@ -22,6 +22,20 @@ content-header:
     component:
       css/component.content-header.css: {}
 
+# Homepage styles.
+homepage:
+  css:
+    theme:
+      css/theme.homepage.css: {}
+  js:
+    js/homepage-init.js: {}
+    js/homepage-count.js: {}
+  dependencies:
+    - core/jquery
+    - brew/wow
+    - brew/countup
+    - brew/onscreen
+
 # Styles and scripts for the brewery list page.
 brewery-list:
   css:
@@ -46,6 +60,23 @@ onscreen:
   dependencies:
       - core/jquery
       - brew/jquery-migrate
+
+# A third-party library for animations triggered with css classes.
+wow:
+  css:
+    theme:
+      css/theme.animate.css: {}
+  js:
+    js/wow.js: {}
+  dependencies:
+    - core/jquery
+
+# A third-party library for animating a count-up effect.
+countup:
+  js:
+    js/countUp.js: {}
+  dependencies:
+    - core/jquery
 
 # Support for running some jQuery 1.x methods in jQuery 3.0.0
 jquery-migrate:

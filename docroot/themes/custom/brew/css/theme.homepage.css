@@ -1,0 +1,207 @@
+/**
+ * Styles used by multiple homepage blocks.
+ */
+.content-band__content {
+  text-align: center;
+}
+.content-band__heading {
+  font-size: 2rem;
+}
+.content-band__body {
+  font-size: 1.5rem;
+  font-family: 'open sans',sans-serif;
+}
+@media all and (min-width: 550px) {
+  .content-band {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 0;
+    padding-bottom: 330px;
+    overflow: hidden;
+
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+  }
+  .content-band__content {
+    position: absolute;
+    top: 50%;
+    padding: 0.5rem;
+    transform: translateY(-50%);
+  }
+}
+
+/**
+ * Story Band / Hops Band Styles.
+ */
+.content-band--story .content-band__break {
+  background-image: url('../images/bg-homepage-hops-mobile.png');
+  height: 125px;
+  width: 100px;
+  background-size: cover;
+  margin: 10px auto;
+}
+.content-band--story .content-band__content {
+  padding-top: 45px;
+  padding-bottom: 45px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+@media all and (min-width: 550px) {
+  .content-band--story {
+    background-image: url('../images/bg-homepage-hops.png');
+    background-position: -250px bottom;
+  }
+  .content-band--story .content-band__break {
+    display: none;
+  }
+  .content-band--story .content-band__content {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 180px;
+  }
+}
+@media all and (min-width: 625px) {
+  .content-band--story .content-band__content {
+    padding-left: calc(100vw - 445px);
+  }
+  .content-band--story {
+    background-position: calc(100vw - 875px) bottom;
+  }
+}
+@media all and (min-width: 875px) {
+  .content-band--story {
+    background-position: left bottom;
+  }
+  .content-band--story .content-band__content {
+    padding-left: 430px
+  }
+}
+
+/**
+ * Story Band / Beer Bottle sketch band styles.
+ */
+.content-band--welcome .content-band__break {
+  background-image: url('../images/bg-homepage-cap-mobile.png');
+  height: 125px;
+  width: 122px;
+  background-size: cover;
+  margin: 10px auto;
+}
+.content-band--welcome .content-band__content {
+  padding-top: 45px;
+  padding-bottom: 45px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+@media all and (min-width: 550px) {
+  .content-band--welcome {
+    background-image: url('../images/homepage-bottles.png');
+    background-position: calc(675px - 50vw) bottom;
+  }
+  .content-band--welcome .content-band__break {
+    display: none;
+  }
+  .content-band--welcome .content-band__content {
+    padding: 0 calc(100vw - 375px) 0 25px;
+  }
+}
+@media all and (min-width: 675px) {
+  .content-band--welcome {
+    background-position: right bottom;
+  }
+  .content-band--welcome .content-band__content {
+    padding: 0 330px 0 25px;
+  }
+}
+
+/**
+ * Feature Block with large image and site title animation.
+ */
+.homepage-feature {
+  background-image: url('../images/homepage-anchor.png');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  height: calc(100vh - 60px); /* Full screen minus fixed menu on top */
+  position: relative;
+}
+body.mobile-device .homepage-feature {
+  background-attachment: inherit; /* iOS and Android dont support */
+}
+.homepage-feature__title {
+  visibility: hidden;
+  background-image: url('../images/site-title.png');
+  width: 600px;
+  height: 300px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+@media all and (max-width: 600px) {
+  .homepage-feature__title {
+    width: 100%;
+    height: 0;
+    background-size: 100%;
+    padding-bottom: 51%;
+  }
+}
+
+/**
+ * Statistics Band / Bottles Band Styles.
+ */
+.homepage-stats {
+  min-height: 300px;
+  background-image: url('../images/homepage-bottling.jpg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+body.mobile-device .homepage-stats {
+  background-attachment: inherit; /* iOS and Android dont support */
+}
+.homepage-stats__content {
+  vertical-align: middle;
+  text-align: center;
+  padding: 50px 0;
+  width: 100%;
+}
+.bubble {
+  display: inline-block;
+  position: relative;
+  line-height: 1;
+  width: 12vw;
+  height: 12vw;
+  min-width: 150px;
+  min-height: 150px;
+  text-align: center;
+  background-color: #fff;
+  margin: 1rem;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.bubble__inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0.5rem;
+  transform: translateX(-50%) translateY(-50%);
+}
+.bubble__count {
+  font-size: 4rem;
+}
+.bubble__type {
+  font-size: 0.85rem;
+}

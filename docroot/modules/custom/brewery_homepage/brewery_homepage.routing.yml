@@ -1,0 +1,7 @@
+# Route for the site's custom homepage.
+brewery_homepage.content:
+  path: '/homepage'
+  defaults:
+    _controller: '\Drupal\brewery_homepage\Controller\HomepageController::content'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Supporting code for the brewery_homepage module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function brewery_homepage_theme() {
+  return [
+    'brewery_homepage' => [
+      'variables' => [],
+    ],
+  ];
+}
