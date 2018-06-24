@@ -5,6 +5,8 @@ namespace Drupal\brewery_map\Controller;
 use Drupal\brewery\Entity\BreweryInterface;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\TypedData\TypedData;
+use Drupal\Core\TypedData\TypedDataInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 
@@ -44,7 +46,7 @@ class MapController extends ControllerBase {
 
     // Load data for published breweries and prepare variables for theming.
     $breweryEntities = self::loadBreweryData();
-    $mapData = array_map('self::parseBreweryData', $breweryEntities);
+    $mapData = array_filter(array_map('self::parseBreweryData', $breweryEntities));
     $countBreweries = count($mapData);
     $countState = count(array_unique(array_map(function ($brewery) {
       return $brewery['address']['state'] ?? NULL;
@@ -98,15 +100,15 @@ class MapController extends ControllerBase {
    *
    * @return array
    *   Brewery data useful for building the map.
-   *
-   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   protected function parseBreweryData(BreweryInterface $brewery): array {
-    $fieldGeo = $brewery->get('field_geolocation')->first()->getValue();
-    $fieldAdd = $brewery->get('field_location')->first()->getValue();
-    $fieldType = array_filter(array_map(function ($type) {
-      return $type['value'] ?? NULL;
-    }, $brewery->get('field_type')->getValue()));
+    // Can not map breweries if long/lat data is not set, so return empty.
+    if (!$fieldGeo = $brewery->getGeolocation()) {
+      return [];
+    }
+    $fieldAdd = $brewery->getAddress();
+    $fieldType = $brewery->getTypes();
+
     return [
       'name' => $brewery->label(),
       'types' => $fieldType,

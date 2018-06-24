@@ -5,9 +5,6 @@ namespace Drupal\brewery_list\Controller;
 use Drupal\brewery\Entity\BreweryInterface;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-use Drupal\file\Entity\File;
-use Drupal\image\Entity\ImageStyle;
-use Drupal\media\Entity\Media;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 
@@ -95,18 +92,10 @@ class ListController extends ControllerBase {
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   protected function parseBreweryData(BreweryInterface $brewery): array {
-    $fieldAdd = $brewery->get('field_location')->first()->getValue();
-    $fieldDate = $brewery->get('field_date_visit')->first()->getValue();
-    $fieldType = array_filter(array_map(function ($type) {
-      return $type['value'] ?? NULL;
-    }, $brewery->get('field_type')->getValue()));
-
-    $mediaField = $brewery->get('field_image')->first()->getValue();
-    $mediaEntity = Media::load($mediaField['target_id']);
-    $fileField = $mediaEntity->get('field_media_image')->first()->getValue();
-    $fileEntity = File::load($fileField['target_id'])->getFileUri();
-    $uri = $fileEntity;
-    $image_url = ImageStyle::load('tile_400x300')->buildUrl($uri);
+    $fieldAdd = $brewery->getAddress();
+    $fieldDate = $brewery->getDateVisit();
+    $fieldType = $brewery->getTypes();
+    $image_url = $brewery->getImageUrl('tile_400x300');
 
     return [
       'name' => $brewery->label(),

@@ -3,9 +3,12 @@
 namespace Drupal\brewery\Entity;
 
 use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\Core\Field\BaseFieldDefinition;
-use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\file\Entity\File;
+use Drupal\file\FileInterface;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\media\Entity\Media;
 use Drupal\custom_entity_tools\Entity\EntityBase;
+use Drupal\media\MediaInterface;
 
 /**
  * Defines the Brewery entity.
@@ -84,6 +87,80 @@ class Brewery extends EntityBase implements BreweryInterface {
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type): array {
     $fields = parent::baseFieldDefinitions($entity_type);
     return $fields;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getGeolocation(): ?array {
+    if ($field = $this->get('field_geolocation')->first()) {
+      return $field->getValue();
+    }
+    return NULL;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getDateVisit(): ?array {
+    if ($field = $this->get('field_date_visit')->first()) {
+      return $field->getValue();
+    }
+    return NULL;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getAddress(): ?array {
+    if ($field = $this->get('field_location')->first()) {
+      return $field->getValue();
+    }
+    return NULL;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getTypes(): ?array {
+    return array_filter(array_map(function ($type) {
+      return $type['value'] ?? NULL;
+    }, $this->get('field_type')->getValue()));
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getImageField(): ?MediaInterface {
+    if ($field = $this->get('field_image')->first()) {
+      $fieldValue = $field->getValue();
+      return Media::load($fieldValue['target_id']);
+    }
+    return NULL;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getFileFieldFromMediaEntity(MediaInterface $mediaEntity): ?FileInterface {
+    if ($field = $mediaEntity->get('field_media_image')->first()) {
+      $fieldValue = $field->getValue();
+      return File::load($fieldValue['target_id']);
+    }
+    return NULL;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getImageUrl(string $imageStyle = 'default'): ?string {
+    if ($mediaEntity = $this->getImageField()) {
+      $fileEntity = $this->getFileFieldFromMediaEntity($mediaEntity);
+    }
+    if (isset($fileEntity) && $uri = $fileEntity->getFileUri()) {
+      return ImageStyle::load($imageStyle)->buildUrl($uri);
+    }
+    return NULL;
   }
 
 }
