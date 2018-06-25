@@ -76,9 +76,8 @@ class HomepageController extends ControllerBase {
   protected function countBreweryTypes(array $breweryEntities) {
     $types = [];
     foreach ($breweryEntities as $brewery) {
-      foreach ($brewery->get('field_type')->getValue() as $type) {
-        array_push($types, strtolower($type['value']) ?? NULL);
-      }
+      $type = $brewery->get('field_type')->first()->getValue();
+      array_push($types, strtolower($type['value']) ?? NULL);
     }
     return array_count_values($types);
   }
