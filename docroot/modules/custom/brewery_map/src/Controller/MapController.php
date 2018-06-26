@@ -5,8 +5,6 @@ namespace Drupal\brewery_map\Controller;
 use Drupal\brewery\Entity\BreweryInterface;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-use Drupal\Core\TypedData\TypedData;
-use Drupal\Core\TypedData\TypedDataInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 
