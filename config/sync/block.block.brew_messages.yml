@@ -1,17 +1,17 @@
-uuid: d73c9859-75e7-406c-ba70-03bd3849dcf3
+uuid: 68e0821a-91b4-4b41-9952-ad3b1b32dd24
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - material_admin
+    - brew
 _core:
-  default_config_hash: 6ANfHFYdqyPgGyd6fgurzphLbqLUVo2aa7rcjNyZ-_0
-id: material_admin_messages
-theme: material_admin
-region: status
-weight: 0
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: brew_messages
+theme: brew
+region: content
+weight: -2
 provider: null
 plugin: system_messages_block
 settings:

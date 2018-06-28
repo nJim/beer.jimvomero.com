@@ -1,0 +1,14 @@
+uuid: b4a269eb-7814-4edd-9fc4-adf537e18f7e
+langcode: en
+status: true
+dependencies: {  }
+name: tile_400x300
+label: 'Tile (400x300)'
+effects:
+  e81517f1-8128-4698-8c25-872e1bd1aaed:
+    uuid: e81517f1-8128-4698-8c25-872e1bd1aaed
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 300

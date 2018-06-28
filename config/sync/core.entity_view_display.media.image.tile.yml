@@ -1,0 +1,32 @@
+uuid: ebb547a2-a2b9-45b7-a8d3-16cb050a4f0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.tile
+    - field.field.media.image.field_media_image
+    - image.style.tile_400x300
+    - media.type.image
+  module:
+    - image
+_core:
+  default_config_hash: jOwnt_yq6AKAfqU6f0xKnxEkFQ2eTPJWxrk3WMLbL68
+id: media.image.tile
+targetEntityType: media
+bundle: image
+mode: tile
+content:
+  field_media_image:
+    label: hidden
+    settings:
+      image_style: tile_400x300
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    weight: 1
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

@@ -1,15 +1,15 @@
-uuid: 500b3966-0732-4bc0-a5d4-c4464a5b630d
+uuid: bdf90cee-9bae-446b-b57b-3b286cd3305e
 langcode: en
 status: true
 dependencies:
   theme:
-    - brewery
+    - brew
 _core:
   default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
-id: brewery_local_tasks
-theme: brewery
+id: brew_local_tasks
+theme: brew
 region: content
-weight: -40
+weight: 0
 provider: null
 plugin: local_tasks_block
 settings:

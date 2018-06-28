@@ -1,15 +1,17 @@
-uuid: aa7f4a7f-4bbe-4038-88c1-682b230e6689
+uuid: fce84a6f-8ad1-40e5-92b1-39d95527aff7
 langcode: en
 status: true
 dependencies:
+  module:
+    - system
   theme:
-    - brewery
+    - brew
 _core:
   default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
-id: brewery_page_title
-theme: brewery
+id: brew_page_title
+theme: brew
 region: content
-weight: -50
+weight: -1
 provider: null
 plugin: page_title_block
 settings:
@@ -17,4 +19,9 @@ settings:
   label: 'Page title'
   provider: core
   label_display: '0'
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/map\r\n/list"
+    negate: true
+    context_mapping: {  }

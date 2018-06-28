@@ -5,7 +5,10 @@ module:
   block: 0
   breakpoint: 0
   brewery: 0
+  brewery_homepage: 0
   brewery_import: 0
+  brewery_list: 0
+  brewery_map: 0
   ckeditor: 0
   color: 0
   config: 0
@@ -23,8 +26,10 @@ module:
   filter: 0
   geofield: 0
   image: 0
+  kint: 0
   link: 0
   media: 0
+  menu_ui: 0
   node: 0
   options: 0
   page_cache: 0
@@ -43,9 +48,8 @@ module:
 theme:
   stable: 0
   classy: 0
-  material_admin: 0
-  brewery: 0
   seven: 0
+  brew: 0
 profile: standard
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
