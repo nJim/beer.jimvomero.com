@@ -1,0 +1,5 @@
+name: 'Brewery Static Maps'
+type: module
+description: 'Downloads a static map via google API to attach to breweries.'
+core: 8.x
+package: 'Custom'

@@ -1,0 +1,4 @@
+services:
+  brewery_staticmap:
+    class: Drupal\brewery_staticmap\BreweryStaticMap
+    arguments: ['@file_system']
