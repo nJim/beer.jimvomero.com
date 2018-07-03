@@ -1,4 +1,4 @@
 services:
   brewery_staticmap:
     class: Drupal\brewery_staticmap\BreweryStaticMap
-    arguments: ['@file_system']
+    arguments: ['@current_user','@file_system','@language_manager']

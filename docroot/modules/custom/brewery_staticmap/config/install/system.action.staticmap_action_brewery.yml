@@ -1,0 +1,6 @@
+id: staticmap_action
+label: 'Fetch Static Map'
+langcode: en
+status: true
+type: brewery
+plugin: staticmap_action

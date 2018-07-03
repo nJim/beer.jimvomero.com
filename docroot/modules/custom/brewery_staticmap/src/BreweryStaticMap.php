@@ -2,12 +2,12 @@
 
 namespace Drupal\brewery_staticmap;
 
+use Drupal\brewery\Entity\Brewery;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Session\AccountProxyInterface;
-use Drupal\brewery\Entity\Brewery;
 use Drupal\file\Entity\File;
 use Drupal\file\FileInterface;
 use Drupal\media\Entity\Media;
@@ -43,11 +43,44 @@ class BreweryStaticMap implements ContainerInjectionInterface {
   protected $languageManager;
 
   /**
-   * Media Element
+   * Brewery Entity.
+   *
+   * @var \Drupal\brewery\Entity\BreweryInterface
+   */
+  protected $brewery = NULL;
+
+  /**
+   * Media Element.
    *
    * @var \Drupal\media\Entity\Media
    */
   protected $mediaElement = NULL;
+
+  /**
+   * Generate Google Static Map and return the created Media Entity.
+   *
+   * @param \Drupal\brewery\Entity\Brewery $brewery
+   *   A brewery entity to process.
+   *
+   * @return bool|\Drupal\media\Entity\Media
+   *   The media entity created that stores the static map.
+   *
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   */
+  public function generateStaticMapForBrewery(Brewery $brewery) {
+
+    $this->brewery = $brewery;
+    $lat = $this->brewery->get('field_geolocation')->first()->getValue()['lat'];
+    $lon = $this->brewery->get('field_geolocation')->first()->getValue()['lon'];
+
+    try {
+      $url = "https://maps.googleapis.com/maps/api/staticmap?center={$lat},{$lon}&zoom=12&size=400x200";
+      return $this->addMediaFromUrl($url);
+    }
+    catch (EntityStorageException $e) {
+      return FALSE;
+    }
+  }
 
   /**
    * Create a media entity of type image from a remote image url.
@@ -60,7 +93,7 @@ class BreweryStaticMap implements ContainerInjectionInterface {
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  public function addMedia(string $url): Media {
+  public function addMediaFromUrl(string $url): Media {
     if ($file = $this->createFileFromUrl($url)) {
       $imageMedia = Media::create([
         'bundle' => 'image',
@@ -95,7 +128,7 @@ class BreweryStaticMap implements ContainerInjectionInterface {
 
     // Copy the temporary file to the default file location. Move this as an
     // unmanaged file as its usage will be tracked as a File entity item.
-    $filesDestination = file_default_scheme() . '://staticmaps/' . $filename;
+    $filesDestination = file_default_scheme() . '://staticmap/' . $this->brewery->label() . '.png';
     $fileUri = file_unmanaged_move($tempFile, $filesDestination, $replace = FILE_EXISTS_RENAME);
 
     // Create a new drupal managed file and save it to the node.
