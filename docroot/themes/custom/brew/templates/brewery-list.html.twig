@@ -22,7 +22,7 @@
               <div class="tile-front__title">{{ brewery.name }}</div>
             </div>
           </div>
-          <div class="tile-back tile-wrapper" data-bg-url="{# {{ brewery.mapImage }} #}">
+          <div class="tile-back tile-wrapper" data-bg-url="{{ brewery.staticmap.url }}">
             <div class="tile-inner">
               <div class="tile-back__title">{{ brewery.title }}</div>
               {% if brewery.date.value %}

@@ -95,7 +95,8 @@ class ListController extends ControllerBase {
     $fieldAdd = $brewery->getAddress();
     $fieldDate = $brewery->getDateVisit();
     $fieldType = $brewery->getTypes();
-    $image_url = $brewery->getImageUrl('tile_400x300');
+    $image_url = $brewery->getImageUrl('field_image', 'tile_400x300');
+    $staticmap_url = $brewery->getImageUrl('field_staticmap', 'tile_400x300');
 
     return [
       'name' => $brewery->label(),
@@ -103,6 +104,9 @@ class ListController extends ControllerBase {
       'date' => $fieldDate,
       'image' => [
         'url' => $image_url ?? '',
+      ],
+      'staticmap' => [
+        'url' => $staticmap_url ?? '',
       ],
       'address' => [
         'city' => $fieldAdd['locality'] ?? '',

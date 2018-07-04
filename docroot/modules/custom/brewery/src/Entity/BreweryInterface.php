@@ -48,10 +48,13 @@ interface BreweryInterface extends EntityBaseInterface {
   /**
    * Get values for Image field of the brewery entity.
    *
+   * @param string $fieldName
+   *   The machine name of the field that contains a media entity.
+   *
    * @return array|null
    *   The field->getValue return array for the field.
    */
-  public function getImageField(): ?MediaInterface;
+  public function getImageField(string $fieldName): ?MediaInterface;
 
   /**
    * Get values for Image field of a given Media entity.
@@ -66,6 +69,6 @@ interface BreweryInterface extends EntityBaseInterface {
   /**
    * {@inheritdoc}
    */
-  public function getImageUrl(string $imageStyle = 'default'): ?string;
+  public function getImageUrl(string $fieldName = 'field_image', string $imageStyle = 'default'): ?string;
 
 }

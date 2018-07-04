@@ -5,12 +5,14 @@
 
         // Attache lazy loader to each image.
         let $image = $('img', this).unveil(500);
+        let $mapUrl = $('.tile-back', this).attr('data-bg-url');
 
         // When clicking a tile, remove flip class from any currently flipped
         // tiles and toggle the flip class for the clicked tile.
         $(this).click(function() {
           $(this).siblings().removeClass('flip');
           $(this).toggleClass('flip');
+          $('.tile-back', this).css('background-image', 'url('+$mapUrl+')');
         });
 
         // Some of the effects are hover-based. Since this does not translate

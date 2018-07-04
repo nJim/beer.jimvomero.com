@@ -131,8 +131,8 @@ class Brewery extends EntityBase implements BreweryInterface {
   /**
    * {@inheritdoc}
    */
-  public function getImageField(): ?MediaInterface {
-    if ($field = $this->get('field_image')->first()) {
+  public function getImageField(string $fieldName): ?MediaInterface {
+    if ($field = $this->get($fieldName)->first()) {
       $fieldValue = $field->getValue();
       return Media::load($fieldValue['target_id']);
     }
@@ -153,8 +153,8 @@ class Brewery extends EntityBase implements BreweryInterface {
   /**
    * {@inheritdoc}
    */
-  public function getImageUrl(string $imageStyle = 'default'): ?string {
-    if ($mediaEntity = $this->getImageField()) {
+  public function getImageUrl(string $fieldName = 'field_image', string $imageStyle = 'default'): ?string {
+    if ($mediaEntity = $this->getImageField($fieldName)) {
       $fileEntity = $this->getFileFieldFromMediaEntity($mediaEntity);
     }
     if (isset($fileEntity) && $uri = $fileEntity->getFileUri()) {
