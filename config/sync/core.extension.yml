@@ -9,6 +9,7 @@ module:
   brewery_import: 0
   brewery_list: 0
   brewery_map: 0
+  brewery_staticmap: 0
   ckeditor: 0
   color: 0
   config: 0

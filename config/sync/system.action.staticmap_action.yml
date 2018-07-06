@@ -1,0 +1,13 @@
+uuid: 1a546e84-1dda-4ef5-80f0-b9e35387e573
+langcode: en
+status: true
+dependencies:
+  module:
+    - brewery_staticmap
+_core:
+  default_config_hash: 9aDA5-L93XI8KED2I-h4f23nFHJTj8wa5qzGbN9PQos
+id: staticmap_action
+label: 'Fetch Static Map'
+type: brewery
+plugin: staticmap_action
+configuration: {  }

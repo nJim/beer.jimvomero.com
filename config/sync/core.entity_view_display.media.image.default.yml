@@ -21,10 +21,18 @@ content:
       image_link: file
     third_party_settings: {  }
     type: image
+    weight: 0
+    region: content
+  thumbnail:
+    type: image
     weight: 1
     region: content
+    label: visually_hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
 hidden:
   created: true
   name: true
-  thumbnail: true
   uid: true

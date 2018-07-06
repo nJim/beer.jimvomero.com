@@ -7,6 +7,7 @@ dependencies:
     - field.field.brewery.brewery.field_geolocation
     - field.field.brewery.brewery.field_image
     - field.field.brewery.brewery.field_location
+    - field.field.brewery.brewery.field_staticmap
     - field.field.brewery.brewery.field_type
   module:
     - address
@@ -47,6 +48,15 @@ content:
     third_party_settings: {  }
     type: address_default
     region: content
+  field_staticmap:
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_type:
     weight: 4
     settings: {  }
@@ -63,7 +73,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 6
+    weight: 7
     region: content
     settings:
       display_label: true

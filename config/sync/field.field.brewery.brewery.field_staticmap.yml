@@ -1,0 +1,29 @@
+uuid: 7f52bbb0-393b-4522-9f57-473508bf6ffd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.brewery.field_staticmap
+    - media.type.image
+  module:
+    - brewery
+id: brewery.brewery.field_staticmap
+field_name: field_staticmap
+entity_type: brewery
+bundle: brewery
+label: 'Static Map'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

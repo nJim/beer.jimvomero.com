@@ -1,0 +1,20 @@
+uuid: 784e8e29-5655-4b9c-a2d0-9c27ca590d41
+langcode: en
+status: true
+dependencies:
+  module:
+    - brewery
+    - media
+id: brewery.field_staticmap
+field_name: field_staticmap
+entity_type: brewery
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

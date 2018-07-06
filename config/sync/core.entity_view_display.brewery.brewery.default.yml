@@ -7,6 +7,7 @@ dependencies:
     - field.field.brewery.brewery.field_geolocation
     - field.field.brewery.brewery.field_image
     - field.field.brewery.brewery.field_location
+    - field.field.brewery.brewery.field_staticmap
     - field.field.brewery.brewery.field_type
   module:
     - address
@@ -51,6 +52,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: address_default
+    region: content
+  field_staticmap:
+    type: entity_reference_entity_view
+    weight: 6
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
     region: content
   field_type:
     weight: 4
