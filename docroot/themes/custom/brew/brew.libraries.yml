@@ -16,6 +16,7 @@ global-styles:
   dependencies:
     - core/drupal
     - core/jquery
+    - core/jquery.once
 
 # Styles for select pages that employ the content-header template.
 content-header:
