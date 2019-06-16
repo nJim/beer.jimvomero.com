@@ -91,7 +91,7 @@ class Geocoder implements ContainerInjectionInterface {
 
     $client = \Drupal::httpClient();
     $address = urlencode($addressString);
-    if ($response = $client->get("http://maps.google.com/maps/api/geocode/json?address={$address}")) {
+    if ($response = $client->get("https://maps.google.com/maps/api/geocode/json?key=AIzaSyC11ZH7i4BxUt-hiBXt8sVUMmtR9TBt8gk&address={$address}")) {
       $data = json_decode($response->getBody(), TRUE);
     }
 
