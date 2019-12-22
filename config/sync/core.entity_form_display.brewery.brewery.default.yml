@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.media_entity_browser
     - field.field.brewery.brewery.field_date_visit
     - field.field.brewery.brewery.field_geolocation
     - field.field.brewery.brewery.field_image
@@ -13,6 +14,7 @@ dependencies:
     - address
     - brewery
     - datetime
+    - entity_browser
     - geofield
 id: brewery.brewery.default
 targetEntityType: brewery
@@ -35,11 +37,16 @@ content:
   field_image:
     weight: 5
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      entity_browser: media_entity_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_replace: false
+      open: false
+      field_widget_display_settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_browser_entity_reference
     region: content
   field_location:
     weight: 1
@@ -51,11 +58,16 @@ content:
   field_staticmap:
     weight: 6
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      entity_browser: media_entity_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_replace: false
+      open: false
+      field_widget_display_settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_browser_entity_reference
     region: content
   field_type:
     weight: 4
