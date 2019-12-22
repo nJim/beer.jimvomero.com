@@ -1,0 +1,4 @@
+name: beer
+recipe: drupal8
+config:
+  webroot: docroot
