@@ -9,6 +9,7 @@ dependencies:
     - field.storage.brewery.field_location
     - field.storage.brewery.field_staticmap
     - field.storage.brewery.field_type
+    - image.style.thumbnail
     - image.style.tiny_thumbnail
   module:
     - address
@@ -394,7 +395,7 @@ display:
           click_sort_column: target_id
           type: media_thumbnail
           settings:
-            image_style: ''
+            image_style: thumbnail
             image_link: ''
           group_column: target_id
           group_columns: {  }
