@@ -31,3 +31,14 @@ widgets:
     weight: 1
     label: view
     id: view
+  d63d7d9f-cc11-4a45-8335-17af42abd1ea:
+    settings:
+      extensions: 'jpg jpeg png gif'
+      media_type: image
+      upload_location: 'public://'
+      multiple: '1'
+      submit_text: 'Select files'
+    uuid: d63d7d9f-cc11-4a45-8335-17af42abd1ea
+    weight: 2
+    label: media_image_upload
+    id: media_image_upload
