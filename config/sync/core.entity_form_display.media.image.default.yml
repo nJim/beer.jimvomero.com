@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.image.field_media_image
-    - image.style.thumbnail
+    - image.style.tile_400x300
     - media.type.image
   module:
     - image
@@ -24,8 +24,8 @@ content:
     third_party_settings: {  }
   field_media_image:
     settings:
+      preview_image_style: tile_400x300
       progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
     weight: 0
@@ -58,6 +58,7 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     region: content
     third_party_settings: {  }
 hidden: {  }

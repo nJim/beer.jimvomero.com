@@ -9,14 +9,11 @@ dependencies:
     - field.storage.brewery.field_location
     - field.storage.brewery.field_staticmap
     - field.storage.brewery.field_type
-    - image.style.thumbnail
-    - image.style.tiny_thumbnail
   module:
     - address
     - brewery
     - datetime
     - geofield
-    - media
     - options
     - user
 id: manage_breweries
@@ -26,7 +23,6 @@ description: 'Manage and review brewery entity data.'
 tag: ''
 base_table: brewery_field_data
 base_field: id
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -329,10 +325,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: media_thumbnail
+          type: entity_reference_entity_view
           settings:
-            image_style: tiny_thumbnail
-            image_link: ''
+            view_mode: preview
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -393,10 +388,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: media_thumbnail
+          type: entity_reference_entity_view
           settings:
-            image_style: thumbnail
-            image_link: ''
+            view_mode: preview
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -853,6 +847,8 @@ display:
           id: status
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
       sorts: {  }
       title: 'Manage Breweries'

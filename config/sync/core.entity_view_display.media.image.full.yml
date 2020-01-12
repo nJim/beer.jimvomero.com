@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.full
     - field.field.media.image.field_media_image
+    - image.style.tile_400x300
     - media.type.image
   module:
     - image
@@ -18,7 +19,7 @@ content:
   field_media_image:
     label: visually_hidden
     settings:
-      image_style: ''
+      image_style: tile_400x300
       image_link: file
     third_party_settings: {  }
     type: image
